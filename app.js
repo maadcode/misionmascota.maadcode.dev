@@ -20,4 +20,10 @@ function toggleTutorial(e) {
     const $tutorial = document.querySelector('.tutorial');
 
     $tutorial.classList.toggle('active');
+
+    if(!$tutorial.classList.contains('active')) {
+        const $video = document.getElementById('video-tutorial');
+        $video.pause();
+        $video.currentTime = 0;
+    }
 }
