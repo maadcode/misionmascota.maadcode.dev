@@ -22,8 +22,12 @@ function toggleTutorial(e) {
     $tutorial.classList.toggle('active');
 
     if(!$tutorial.classList.contains('active')) {
-        const $video = document.getElementById('video-tutorial');
-        $video.pause();
-        $video.currentTime = 0;
+        const iframes = document.getElementsByTagName("iframe");
+        if (iframes != null) {
+            for (let i = 0; i < iframes.length; i++) {
+                iframes[i].src = iframes[i].src; //causes a reload so it stops playing, music, video, etc.
+            }
+        }
     }
+    
 }
